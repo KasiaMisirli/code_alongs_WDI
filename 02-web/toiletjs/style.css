@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    background-color: grey;
+
+}
+
+.tank {
+    width: 400px;
+    height: 200px;
+    background-color: white;
+    border-radius: 30px;
+}
+
+.bowl {
+    height: 400px;
+    background-color: mintcream;
+    width: 400px;
+    border-radius: 20% 20% 40% 40%;
+    border: 60px solid white;
+    box-shadow: inset 0 0 20px #e3e3e3;
+    cursor: pointer;
+    transition: all 1s ease-out;
+}
+
+.poop{
+    background-color: darkolivegreen;
+    height: 600px;
+}

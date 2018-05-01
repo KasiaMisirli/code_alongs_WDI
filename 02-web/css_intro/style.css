@@ -1,0 +1,35 @@
+
+
+h1 {
+    color:red;
+}
+p {
+    background-color: red;
+}
+/*below is id, very hard to overwrite*/
+#warning {
+    font-size: 10px;
+}
+/*below is class, easier to overwrite*/
+.title
+{
+    color:purple;
+}
+
+/*below is refering to h1 within the article*/
+article h1 {
+    color: yellow;
+}
+
+article p{
+    color:green;
+}
+/*looking for direct (>) children*/
+article > p{
+    color: purple;
+}
+/*below overspecifying, not to be used*/
+article footer > p.joy{
+    color:blue;
+
+}

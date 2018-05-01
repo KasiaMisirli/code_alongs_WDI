@@ -1,0 +1,105 @@
+<%= @dish["name"] %>
+<a href=""><img src="<%= @dish['image_url']%>"></a>
+<form action="/dishes" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="hidden" name="id" value="<%= @dish['id']%>">
+    <button>delete</button>
+</form>
+
+<a href="/dishes/<%= @dish['id']%>/edit">edit</a>
+
+
+<!--<p>Likes count: <%#= Like.where(dish_id:@dish.id).count%></p>-->
+
+<p>Likes count: <span class="likes-count"><%= @dish.likes.count%></p></span>
+
+<form action="/likes" method="post">
+<input type="hidden" name="dish_id" value="<%= @dish.id%>">
+<button class="like-btn">like</button>
+</form>
+
+<form action="/comments" method="post">
+    <input type="hidden" name="dish_id" value="<%= @dish['id']%>">
+    <textarea name="content"></textarea>
+    <button>post comment</button>
+</form>
+<div class="comments-list">
+<% @comments.each do |comment|%>
+<p><%=comment['content']%></p>
+<p><%=comment.user.email if comment.user%></p>
+<%end%>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+    console.log('js');
+
+//                      without using jquery
+// var likeBtn = document.querySelector('.like-btn')
+// //likeBtn.addEventListener('click', function(){})
+// likeBtn.addEventListener('click', function(event){
+//     event.preventDefault();
+// });
+//                      below with using jquery
+var $likeBtn = $('.like-btn');//$ to remind its jQuery,this is the class that we gave to button
+//likeBtn.addEventListener('click', function(){})
+$likeBtn.on('click', function(event){
+    event.preventDefault();
+
+var options = {
+    url: '/api/likes',
+    data: {dish_id: <%= @dish.id%>},
+    method: 'post'
+}
+$.ajax(options).done(function(res){
+    console.log(res)
+    $('.likes-count').text(res.likes_count)
+    // document.querySelector('.likes-count').textContent = res.likes_count;
+})
+});
+
+//if we have 3 buttons, search will return all 3 and apply to all 3
+
+//on('click' is event handler
+
+
+var $comments = $('.comments-list p');
+$comments.on('click',function(){
+    console.log("some comment clicked")
+})
+//$('p')
+//=> will return all p
+//$('p')[0]
+//=>return 1st one
+//$('p')[0].textContent
+//$('p').eq.(0)  //getting 1st jQ object
+//$('p').text('ffdd') will change texxt of each p, it loops
+//$('p:first-child')
+//$(".hero-photo").fadeOut
+//$.ajax   using js to make requests
+
+// $.ajax({
+//     url: "http://omdbapi.com/?t=jaws&apikey=2f6435d9"
+// })
+
+
+// $.ajax({
+//     url: "http://omdbapi.com/?t=jaws&apikey=2f6435d9"
+// }).done(function(res){
+// console.log(res);
+// })
+// $.ajax({
+//     url: "http://omdbapi.com/?t=jaws&apikey=2f6435d9"
+// }).done(function(res){
+// console.log(res.Title); // getting the title back
+// })
+
+
+// $.ajax({
+//     url: 'http://omdbapi.com/?s='+$('keyword')'&apikey=2f6435d9
+// }).done(function(res){
+//     $('p').text(res.Title);// getting the title back
+// }) //changing the p to outcome title
+
+
+
+</script>

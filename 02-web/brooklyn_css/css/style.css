@@ -1,0 +1,36 @@
+h1 {
+    color:grey;
+    width: 500px;
+    border: 1px solid pink;
+    padding: 5px;
+    box-sizing: border-box;
+
+ 
+}
+body p {
+    color:grey;
+}
+
+.blue{
+    color:blue;
+}
+h4 {
+    font-weight: bold;
+}
+container{
+    width: 900px;
+    border: 10px solid red;
+    
+}
+.hero img{
+    width: 100%;
+}
+.press img{
+    width: 24%;
+    box-sizing: border-box;
+}
+
+p a {
+    display:inline;
+    background-color: pink;
+}

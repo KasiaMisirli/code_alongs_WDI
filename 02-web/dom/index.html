@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+<style>
+    div {
+        border: 3px solid black;
+        background-color: pink;
+        height: 100px;
+        width: 100px;
+    }
+
+</style>
+  
+
+</head>
+<body>
+    <h1>potato</h1>
+    <div>
+        <h2>eggplant</h2>
+        <p>tomato</p>
+    </div>
+    <script>
+     
+    var sayHello =function(name){
+        console.log("hello"+ name +"! Welcome to lings cars!");
+    }
+    var gentlyRemind = function(name){
+        console.log(name+" you own me money, please pay");
+    }
+    
+    // var customers = ["mary", "jo", "lisa"];
+    // for(var index=0;index<customers.length;index++){
+    //     sayHello(customers[index]);
+    // }
+    var customers = ["mary", "jo", "lisa"];
+    // for(var index=0;index<customers.length;index++){
+    //     gentlyRemind(customers[index]);
+    // }
+
+
+    // forEach(customer,sayHello);
+    // forEach(customer,gentlyRemind);
+
+    var forEach= function(arr,func){
+        for(var index=0;index<arr.length;index++){
+            func(arr[index]);
+        }
+
+    }
+forEach(customers,gentlyRemind);
+
+
+forEach(fruits,sayHello);
+
+var logSomething = function(){
+    console.log("user action";)
+}
+var para = document.querySelector("p")
+para.addEventListener("click",logSomething);
+
+var para = document.querySelector("p")
+para.addEventListener("click",function(){
+    document.body.style.backgroundColor="pink";
+});
+
+    </script>
+</body>
+</html>

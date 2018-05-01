@@ -1,0 +1,23 @@
+var string = "FRZDUGV GLH PDQB WLPHV EHIRUH WKHLU GHDWKV, WKH YDOLDQW QHYHU WDVWH RI GHDWK EXW RQFH"
+
+var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var alphaArray = alphabet.split("");
+var encodeArray = [];
+
+for(var i=0;i<string.length;i++){
+    if(string[i]==" "){
+        console.log(" ");
+        continue;
+    }
+    var index = string.indexOf(i);
+    index = alphabet[index]-3;
+    if(index==-3){
+        console.log("A");
+    }else if(index==-2){
+        console.log("B");
+    }else if(index==-1){
+        console.log("C");
+    }else{
+        console.log(alphabet[index])
+    }
+}
